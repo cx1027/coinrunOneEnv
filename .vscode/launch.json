@@ -1,0 +1,57 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python launch",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "/Users/X/Anaconda/anaconda3/envs/py37/bin/python3",
+            "program": "${workspaceRoot}/coinrun/train_agent.py",
+            "cwd": "",
+            "console": "externalTerminal",
+            "env": {},
+            "envFile": "${workspaceRoot}/.env",
+            "debugOptions": [
+                "WaitOnAbnormalExit",
+                "WaitOnNormalExit"
+            ]
+        },
+        {
+            "name": "Python Attach (local) proc 0",
+            "type": "python",
+            "request": "attach",
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "${workspaceRoot}",
+            "port": 9000,
+            "secret": "cert_gdb_pythoncpp",
+            "host": "localhost"
+        },
+        {
+            "name": "Python Attach (local) proc 1",
+            "type": "python",
+            "request": "attach",
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "${workspaceRoot}",
+            "port": 3001,
+            "secret": "cert_gdb_pythoncpp",
+            "host": "localhost"
+        },
+        { 
+            "name": "GDB Attach proc 0",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "/Users/X/Anaconda/anaconda3/envs/py37/bin/python3",
+            "processId": "${command:pickProcess}",
+            "MIMode": "gdb"
+        },
+        { 
+            "name": "GDB Attach proc 1",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "/Users/X/Anaconda/anaconda3/envs/py37/bin/python3",
+            "processId": "${command:pickProcess}",
+            "MIMode": "gdb"
+        }
+    ]
+}
